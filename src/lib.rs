@@ -1,13 +1,7 @@
 use std::io;
 
 #[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
-}
+mod tests;
 
 pub trait Widget {
     fn draw<W: io::Write>(&self, term: &mut W) -> io::Result<()>;
