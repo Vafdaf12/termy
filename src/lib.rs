@@ -13,6 +13,6 @@ pub trait Widget {
     fn draw<W: io::Write>(&self, term: &mut W) -> io::Result<()>;
 }
 
-pub mod raw;
-pub mod input;
 pub mod event;
+pub mod input;
+pub mod raw;

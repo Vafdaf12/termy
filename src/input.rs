@@ -1,6 +1,11 @@
 use std::io;
 
-use crossterm::{event::{Event, KeyCode}, queue, style::Print, cursor::MoveLeft};
+use crossterm::{
+    cursor::MoveLeft,
+    event::{Event, KeyCode},
+    queue,
+    style::Print,
+};
 
 use crate::Widget;
 

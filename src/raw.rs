@@ -1,7 +1,6 @@
 use std::io;
 
-use crossterm::terminal::{enable_raw_mode, disable_raw_mode};
-
+use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
 
 /// Helper struct to handle edge-cases involving
 /// the enabling and disabling of raw mode.
