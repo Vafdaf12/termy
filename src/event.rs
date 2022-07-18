@@ -22,7 +22,7 @@ impl EventIter {
 
 impl Default for EventIter {
     fn default() -> Self {
-        EventIter::from_millis(50)
+        EventIter::from_millis(0)
     }
 }
 
