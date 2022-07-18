@@ -3,8 +3,8 @@ use std::io;
 use crossterm::{
     cursor::MoveLeft,
     event::{Event, KeyCode},
-    queue,
     style::Print,
+    QueueableCommand,
 };
 
 use crate::Widget;
@@ -80,6 +80,10 @@ impl Widget for RawInput {
             .try_into()
             .expect("failed to move cursor");
 
-        queue!(term, Print(&self.value), MoveLeft(move_left))
+        term.queue(Print(&self.value))?;
+        if move_left > 0 {
+            term.queue(MoveLeft(move_left))?;
+        }
+        Ok(())
     }
 }
