@@ -2,7 +2,7 @@ use std::io;
 
 use crossterm::{
     cursor::MoveLeft,
-    event::{Event, KeyCode},
+    event::{Event, KeyCode, KeyModifiers},
     style::Print,
     QueueableCommand,
 };
@@ -48,7 +48,7 @@ impl RawInput {
         if let Event::Key(key) = event {
             match key.code {
                 // Input
-                KeyCode::Char(c) => {
+                KeyCode::Char(c) if !key.modifiers.contains(KeyModifiers::CONTROL) => {
                     self.value.insert(self.cursor as usize, c);
                     self.cursor += 1;
                 }
